@@ -57,3 +57,22 @@ Prenez le temps de lire, d'analyser voir même de bidouiller le fichier "app.py"
 # Publier vos modifications sur votre propre dépôt GitHub
 Une fois que vous avez terminé de travailler sur les consignes du projet et que vous souhaitez publier vos modifications dans votre dépôt, vous devrez suivre les étapes décrites dans la section « Validation (commit) de vos modifications » de [cette ressource](https://docs.github.com/fr/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#validation-commit-de-vos-modifications
 ).
+
+
+## 📊 Fiche Synthèse des Résultats
+
+### 1. Chiffre d'Affaires Global
+* **Total des ventes (20 jours) :** **44 825 €**
+
+### 2. Analyse par Produit 
+* **Produit A :** 14 ventes 
+* **Produit B :** 13 ventes 
+* **Produit C :** 12 ventes 
+### 3. Analyse par Région (Chiffre d'Affaires)
+* **Région Sud :** **24 100 €** (53,8 % du CA)
+* **Région Nord :** **20 725 €** (46,2 % du CA)
+
+### 4. Fichiers & Graphiques inclus dans ce dépôt
+* `requetes.sql` : Export de l'ensemble des requêtes SQL d'analyse.
+* `app.py` : Script Python générant les visualisations interactives Plotly.
+* `ventes-par-produit.html` & `ca-par-produit.html` : Graphiques interactifs exportés en HTML.
