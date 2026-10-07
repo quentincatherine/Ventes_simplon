@@ -1,10 +1,32 @@
-import plotly.express as px
 import pandas as pd
+import plotly.express as px
 
-données = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSC4KusfFzvOsr8WJRgozzsCxrELW4G4PopUkiDbvrrV2lg0S19-zeryp02MC9WYSVBuzGCUtn8ucZW/pub?output=csv')
+# 1. Chargement des données
+df = pd.read_csv('ventes.simplon.csv')
 
-figure = px.pie(données, values='qte', names='region', title='quantité vendue par région')
+# 2. Calcul du Chiffre d'Affaires (Prix x Quantité)
+df['ca'] = df['prix'] * df['qte']
 
-figure.write_html('ventes-par-region.html')
+# --- 6.a : Ventes par produit (Quantités) ---
+ventes_prod_qte = df.groupby('produit')['qte'].sum().reset_index()
+fig_qte = px.bar(
+    ventes_prod_qte, 
+    x='produit', 
+    y='qte', 
+    title='Ventes par produit (Quantités)', 
+    color='produit'
+)
+fig_qte.write_html('ventes-par-produit.html')
 
-print('ventes-par-région.html généré avec succès !')
+# --- 6.b : Chiffre d'affaires par produit (€) ---
+ventes_prod_ca = df.groupby('produit')['ca'].sum().reset_index()
+fig_ca = px.bar(
+    ventes_prod_ca, 
+    x='produit', 
+    y='ca', 
+    title='Chiffre d\'Affaires par produit (€)', 
+    color='produit'
+)
+fig_ca.write_html('ca-par-produit.html')
+
+print("Les 2 graphiques ont été générés avec succès !")
